@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #0f172a; /* Dark Slate */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            overflow: hidden;
+        }
+        #card { display: none; text-align: center; }
+        .btn-surprise {
+            padding: 20px 40px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            background: #ec4899;
+            border: none;
+            border-radius: 50px;
+            color: white;
+            box-shadow: 0 10px 20px rgba(236, 72, 153, 0.3);
+            transition: transform 0.2s;
+        }
+        .btn-surprise:hover { transform: scale(1.1); }
+        h1 { font-size: 4rem; margin-bottom: 10px; color: #f472b6; }
+        p { font-size: 1.5rem; opacity: 0.8; }
+    </style>
+</head>
+<body>
+
+    <div id="opener">
+        <button class="btn-surprise animate__animated animate__pulse animate__infinite" onclick="revealSurprise()">
+            Click for a Surprise! 🎁
+        </button>
+    </div>
+
+    <div id="card" class="animate__animated">
+        <h1>Happy Birthday! 🎂</h1>
+        <p>You make the world a better place!</p>
+        <div style="margin-top: 20px;">✨ 🎈 🍰 🎈 ✨</div>
+    </div>
+
+    <script>
+        function revealSurprise() {
+            // 1. Hide the button
+            document.getElementById('opener').style.display = 'none';
+            
+            // 2. Show the card with a "Zoom In" animation
+            const card = document.getElementById('card');
+            card.style.display = 'block';
+            card.classList.add('animate__zoomIn');
+
+            // 3. Trigger the Confetti!
+            var duration = 3 * 1000;
+            var end = Date.now() + duration;
+
+            (function frame() {
+                confetti({
+                    particleCount: 5,
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0 },
+                    colors: ['#ff0000', '#00ff00', '#0000ff']
+                });
+                confetti({
+                    particleCount: 5,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1 },
+                    colors: ['#ff0000', '#00ff00', '#0000ff']
+                });
+
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
+            }());
+        }
+    </script>
+</body>
+</html>
