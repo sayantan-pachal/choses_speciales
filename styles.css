@@ -109,3 +109,16 @@ h1 {
     text-align: center;
     font-family: 'Brush Script MT', cursive;
 }
+
+.message-content {
+    max-width: 600px;
+    margin: 20px auto;
+    line-height: 1.6;
+    font-size: 1.1rem;
+    color: #e2e8f0; /* Soft white/grey */
+    text-align: center;
+}
+
+.message-content p {
+    margin-bottom: 15px;
+}
