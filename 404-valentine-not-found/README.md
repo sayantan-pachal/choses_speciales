@@ -24,5 +24,6 @@ A high-performance, survival-themed web application built to navigate the "comme
 * **Data Persistence:** Uses `localStorage` to remember user theme preferences across sessions.
 * **Responsive Engine:** Fully mobile-optimized grid layouts using Tailwind's breakpoint system.
 
+![alt text](image.png)
 ---
 Developed by **Sayantan Pachal** | Computer Science Engineering Student
