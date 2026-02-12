@@ -1,0 +1,17 @@
+body { transition: background-color 0.5s, color 0.5s; }
+        .mood-crying { background-color: #1a1a2e; color: #a2a2d0; }
+        .mood-happy { background-color: #1b4332; color: #d8f3dc; }
+        .mood-dark { background-color: #000000; color: #ff4d4d; }
+
+        /* Add this to your CSS */
+.relapse-shake {
+    animation: shake-animation 0.3s linear infinite;
+}
+
+@keyframes shake-animation {
+    0% { transform: translate(0,0); }
+    25% { transform: translate(5px, 5px); }
+    50% { transform: translate(-5px, -5px); }
+    75% { transform: translate(5px, -5px); }
+    100% { transform: translate(0,0); }
+}

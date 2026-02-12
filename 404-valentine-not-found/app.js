@@ -48,50 +48,45 @@ function updateAttachment(amount) {
 }
 
 function triggerRelapse() {
-    // 1. Target the specific container
-    // Make sure your HTML div has the class 'status-matrix-card'
+    // This now matches the class we added in Step 1
     const container = document.querySelector('.status-matrix-card'); 
     
     if (container) {
-        // 2. Start the shaking
         container.classList.add('relapse-shake');
         
-        // 3. Reset JS Variables (The "State")
+        // Reset ALL values including singleLevel
         selfRespect = 10;
         attachment = 95;
-        singleLevel = 5;
+        singleLevel = 5; 
 
-        // 4. Force the UI to match the new variables
         updateBars();
 
-        // 5. Stop shaking after 1.5 seconds
         setTimeout(() => {
             container.classList.remove('relapse-shake');
         }, 1500);
     } else {
-        console.error("Could not find the status container to shake!");
+        console.error("Selector mismatch: .status-matrix-card not found in HTML");
     }
 }
 
-// Global update function to keep everything in sync
 function updateBars() {
-    // Update Respect Bar
+    // 1. Update Respect
     const respectBar = document.getElementById('respect-bar');
     const respectVal = document.getElementById('respect-val');
     if(respectBar) respectBar.style.width = selfRespect + "%";
     if(respectVal) respectVal.innerText = selfRespect + "%";
     
-    // Update Attachment Bar
+    // 2. Update Attachment
     const attachBar = document.getElementById('attach-bar');
     const attachVal = document.getElementById('attach-val');
     if(attachBar) attachBar.style.width = attachment + "%";
     if(attachVal) attachVal.innerText = attachment + "%";
     
-    // Update Single Level Bar
+    // 3. Update Single Level (Crucial for the reset to show visually)
     const singleBar = document.getElementById('single-bar');
     const singleVal = document.getElementById('single-val');
     if(singleBar) singleBar.style.width = singleLevel + "%";
-    if(singleVal) singleVal.innerText = singleLevel + "%";
+    if(singleVal) singleVal.innerText = (singleLevel === 100) ? "GOD LEVEL" : singleLevel + "%";
 }
 
 // --- Timeline Rendering ---
