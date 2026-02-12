@@ -260,3 +260,49 @@ function copyToClipboard() {
         console.error('Failed to copy: ', err);
     });
 }
+
+// --- Achievement Badge Download Logic ---
+function downloadAchievementBadge() {
+    const canvas = document.getElementById('hiddenDownloadCanvas');
+    const ctx = canvas.getContext('2d');
+
+    // 1. Background (Dark Zinc)
+    ctx.fillStyle = "#18181b";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // 2. Border (Yellow Gold)
+    ctx.strokeStyle = "#eab308";
+    ctx.lineWidth = 15;
+    ctx.strokeRect(30, 30, canvas.width - 60, canvas.height - 60);
+
+    // 3. Trophy Emoji (Drawn as Text)
+    ctx.font = "60px Arial";
+    ctx.textAlign = "center";
+    ctx.fillText("🏆", canvas.width / 2, 110);
+
+    // 4. Header Text
+    ctx.fillStyle = "#eab308";
+    ctx.font = "bold 30px sans-serif";
+    ctx.fillText("ACHIEVEMENT UNLOCKED", canvas.width / 2, 170);
+
+    // 5. Status Text
+    ctx.fillStyle = "#ffffff";
+    ctx.font = "bold 40px sans-serif";
+    ctx.fillText("GOD LEVEL SINGLE", canvas.width / 2, 230);
+
+    // 6. Quote Text
+    ctx.fillStyle = "#71717a";
+    ctx.font = "italic 20px Georgia";
+    ctx.fillText('"Self-respect higher than the Burj Khalifa"', canvas.width / 2, 280);
+    
+    // 7. Site Branding
+    ctx.fillStyle = "#52525b";
+    ctx.font = "14px Arial";
+    ctx.fillText("sayantanpachal.vercel.app", canvas.width / 2, 350);
+
+    // 8. Trigger the Actual Download
+    const link = document.createElement('a');
+    link.download = 'God-Level-Single-Badge.png';
+    link.href = canvas.toDataURL("image/png");
+    link.click();
+}
