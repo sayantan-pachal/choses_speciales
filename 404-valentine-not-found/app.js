@@ -187,3 +187,43 @@ function wrapText(context, text, x, y, maxWidth, lineHeight) {
     }
     context.fillText(line, x, testY);
 }
+
+// 1. Secret Key Sequence
+let inputSequence = "";
+const secretCode = "sayantan";
+
+// 2. Event Listener for Keyboard
+document.addEventListener('keydown', (e) => {
+    // Add the pressed key to our sequence string
+    inputSequence += e.key.toLowerCase();
+
+    // Keep only the last few characters (matching the length of the secret code)
+    if (inputSequence.length > secretCode.length) {
+        inputSequence = inputSequence.substring(inputSequence.length - secretCode.length);
+    }
+
+    // Check if the sequence matches
+    if (inputSequence === secretCode) {
+        activateDevMode();
+        inputSequence = ""; // Reset after activation
+    }
+});
+
+// 3. The "God Mode" Function
+function activateDevMode() {
+    console.log("Dev Mode Activated: Respect Maxed Out! 🚀");
+    
+    // Set variables to maximum
+    selfRespect = 100;
+    attachment = 0;
+    singleLevel = 100;
+
+    // Update UI
+    updateBars();
+    
+    // Add a cool visual flash to the body
+    document.body.style.filter = "invert(1)";
+    setTimeout(() => {
+        document.body.style.filter = "invert(0)";
+    }, 200);
+}
