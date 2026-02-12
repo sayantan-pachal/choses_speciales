@@ -69,6 +69,7 @@ function triggerRelapse() {
     }
 }
 
+// Global update function
 function updateBars() {
     // 1. Update Respect
     const respectBar = document.getElementById('respect-bar');
@@ -82,11 +83,30 @@ function updateBars() {
     if(attachBar) attachBar.style.width = attachment + "%";
     if(attachVal) attachVal.innerText = attachment + "%";
     
-    // 3. Update Single Level (Crucial for the reset to show visually)
+    // 3. Update Single Level
     const singleBar = document.getElementById('single-bar');
     const singleVal = document.getElementById('single-val');
-    if(singleBar) singleBar.style.width = singleLevel + "%";
-    if(singleVal) singleVal.innerText = (singleLevel === 100) ? "GOD LEVEL" : singleLevel + "%";
+    if(singleBar) {
+        singleBar.style.width = singleLevel + "%";
+        if (singleLevel === 100) {
+            singleVal.innerText = "GOD LEVEL";
+            showAchievement(); // Trigger the popup
+        } else {
+            singleVal.innerText = singleLevel + "%";
+        }
+    }
+}
+
+// Show the popup
+function showAchievement() {
+    const popup = document.getElementById('achievement-popup');
+    popup.classList.remove('hidden');
+}
+
+// Hide the popup
+function closeAchievement() {
+    const popup = document.getElementById('achievement-popup');
+    popup.classList.add('hidden');
 }
 
 // --- Timeline Rendering ---
