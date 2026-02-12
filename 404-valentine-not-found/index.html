@@ -15,8 +15,30 @@
 </head>
 
 <body class="mood-dark font-sans min-h-screen">
+    <nav class="fixed top-0 left-0 w-full z-[100] bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800 px-6 py-4">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <span class="text-xl font-black uppercase tracking-tighter text-white">
+                404: <span class="text-red-600">VNF</span>
+            </span>
+        </div>
 
-    <header class="text-center py-20 px-4 min-h-screen flex flex-col items-center justify-center">
+        <div class="hidden sm:flex items-center gap-4">
+            <div class="text-xs font-mono text-zinc-500 uppercase tracking-widest">Single Level:</div>
+            <div class="w-32 bg-zinc-800 h-2 rounded-full overflow-hidden">
+                <div id="nav-single-bar" class="bg-red-600 h-full transition-all duration-500" style="width: 99%"></div>
+            </div>
+            <span id="nav-single-val" class="text-sm font-bold text-white font-mono">99%</span>
+        </div>
+
+        <a href="https://sayantanpachal.vercel.app" target="_blank" 
+           class="text-xs font-bold uppercase border border-zinc-700 px-4 py-2 rounded-full hover:bg-white hover:text-black transition-all">
+            Developer
+        </a>
+    </div>
+</nav>
+
+    <header class="text-center pt-32 pb-20 px-4 min-h-screen flex flex-col items-center justify-center">
         <h1 class="text-6xl font-black mb-4 uppercase tracking-tighter">404: Valentine Not Found 💀</h1>
         <p class="text-xl mb-8">Congratulations! You survived another year of commercialized romance.</p>
 

@@ -88,29 +88,29 @@ function triggerRelapse() {
 
 // Global update function
 function updateBars() {
-    // 1. Update Respect
-    const respectBar = document.getElementById('respect-bar');
-    const respectVal = document.getElementById('respect-val');
-    if (respectBar) respectBar.style.width = selfRespect + "%";
-    if (respectVal) respectVal.innerText = selfRespect + "%";
+    const bars = [
+        { bar: 'respect-bar', val: 'respect-val', value: selfRespect },
+        { bar: 'attach-bar', val: 'attach-val', value: attachment },
+        { bar: 'single-bar', val: 'single-val', value: singleLevel, isSingle: true },
+        { bar: 'nav-single-bar', val: 'nav-single-val', value: singleLevel, isSingle: true }
+    ];
 
-    // 2. Update Attachment
-    const attachBar = document.getElementById('attach-bar');
-    const attachVal = document.getElementById('attach-val');
-    if (attachBar) attachBar.style.width = attachment + "%";
-    if (attachVal) attachVal.innerText = attachment + "%";
-
-    // 3. Update Single Level
-    const singleBar = document.getElementById('single-bar');
-    const singleVal = document.getElementById('single-val');
-    if (singleBar) {
-        singleBar.style.width = singleLevel + "%";
-        if (singleLevel === 100) {
-            singleVal.innerText = "GOD LEVEL";
-            showAchievement(); // Trigger the popup
-        } else {
-            singleVal.innerText = singleLevel + "%";
+    bars.forEach(item => {
+        const barEl = document.getElementById(item.bar);
+        const valEl = document.getElementById(item.val);
+        
+        if (barEl) barEl.style.width = item.value + "%";
+        if (valEl) {
+            if (item.isSingle && item.value >= 100) {
+                valEl.innerText = "GOD LEVEL";
+            } else {
+                valEl.innerText = item.value + "%";
+            }
         }
+    });
+
+    if (singleLevel >= 100) {
+        showAchievement();
     }
 }
 
@@ -168,7 +168,7 @@ function shareOnX() {
     const tweetText = encodeURIComponent(
         "I just achieved GOD LEVEL SINGLE status on '404: Valentine Not Found'! 💀🔥 My self-respect is at 100% and my attachment issues are gone. Check it out!"
     );
-    const tweetUrl = "https://sayantan-pachal.github.io/choses_speciales/404-valentine-not-found";link
+    const tweetUrl = "https://sayantan-pachal.github.io/choses_speciales/404-valentine-not-found";
     const twitterUrl = `https://twitter.com/intent/tweet?text=${tweetText}&url=${tweetUrl}`;
 
     // Open in a new small window
