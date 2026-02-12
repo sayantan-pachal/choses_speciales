@@ -1,5 +1,3 @@
-// app.js
-
 // --- State Management ---
 let selfRespect = 50;
 let attachment = 80;
@@ -23,7 +21,7 @@ function changeMood(mood) {
 function survivalAction(type) {
     const display = document.getElementById('display-text');
     const list = survivalData[type];
-    
+
     if (list) {
         const random = list[Math.floor(Math.random() * list.length)];
         display.style.opacity = 0;
@@ -37,13 +35,13 @@ function survivalAction(type) {
 // --- Status Matrix Logic ---
 function updateRespect(amount) {
     selfRespect = Math.min(100, selfRespect + amount);
-    if(selfRespect > 80) updateAttachment(-5);
+    if (selfRespect > 80) updateAttachment(-5);
     updateBars();
 }
 
 function updateAttachment(amount) {
     attachment = Math.max(0, attachment + amount);
-    
+
     // Trigger God Level if attachment hits 0
     if (attachment === 0) {
         singleLevel = 100;
@@ -51,21 +49,21 @@ function updateAttachment(amount) {
         // Linear logic: singleLevel increases as attachment decreases
         singleLevel = 100 - attachment;
     }
-    
+
     updateBars();
 }
 
 function triggerRelapse() {
     // This now matches the class we added in Step 1
-    const container = document.querySelector('.status-matrix-card'); 
-    
+    const container = document.querySelector('.status-matrix-card');
+
     if (container) {
         container.classList.add('relapse-shake');
-        
+
         // Reset ALL values including singleLevel
         selfRespect = 10;
         attachment = 95;
-        singleLevel = 5; 
+        singleLevel = 5;
 
         updateBars();
 
@@ -82,19 +80,19 @@ function updateBars() {
     // 1. Update Respect
     const respectBar = document.getElementById('respect-bar');
     const respectVal = document.getElementById('respect-val');
-    if(respectBar) respectBar.style.width = selfRespect + "%";
-    if(respectVal) respectVal.innerText = selfRespect + "%";
-    
+    if (respectBar) respectBar.style.width = selfRespect + "%";
+    if (respectVal) respectVal.innerText = selfRespect + "%";
+
     // 2. Update Attachment
     const attachBar = document.getElementById('attach-bar');
     const attachVal = document.getElementById('attach-val');
-    if(attachBar) attachBar.style.width = attachment + "%";
-    if(attachVal) attachVal.innerText = attachment + "%";
-    
+    if (attachBar) attachBar.style.width = attachment + "%";
+    if (attachVal) attachVal.innerText = attachment + "%";
+
     // 3. Update Single Level
     const singleBar = document.getElementById('single-bar');
     const singleVal = document.getElementById('single-val');
-    if(singleBar) {
+    if (singleBar) {
         singleBar.style.width = singleLevel + "%";
         if (singleLevel === 100) {
             singleVal.innerText = "GOD LEVEL";
@@ -123,7 +121,7 @@ function shareOnX() {
     );
     const tweetUrl = "https://sayantanpachal.vercel.app"; // Your portfolio link
     const twitterUrl = `https://twitter.com/intent/tweet?text=${tweetText}&url=${tweetUrl}`;
-    
+
     // Open in a new small window
     window.open(twitterUrl, "_blank", "width=600,height=400");
 }
@@ -132,7 +130,7 @@ function shareOnX() {
 function renderTimeline() {
     const timelineBody = document.getElementById('timeline-body');
     if (!timelineBody) return;
-    
+
     timelineBody.innerHTML = survivalData.timeline.map(item => `
         <tr class="border-b border-zinc-800">
             <td class="p-4 font-bold">${item.day}</td>
@@ -146,14 +144,14 @@ function renderTimeline() {
 function generateMeme() {
     const canvas = document.getElementById('memeCanvas');
     if (!canvas) return;
-    
+
     const ctx = canvas.getContext('2d');
     const quote = survivalData.memes[Math.floor(Math.random() * survivalData.memes.length)];
 
-    ctx.fillStyle = "#18181b"; 
+    ctx.fillStyle = "#18181b";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    ctx.strokeStyle = "#dc2626"; 
+    ctx.strokeStyle = "#dc2626";
     ctx.lineWidth = 10;
     ctx.strokeRect(20, 20, canvas.width - 40, canvas.height - 40);
 
@@ -174,7 +172,7 @@ function wrapText(context, text, x, y, maxWidth, lineHeight) {
     let line = '';
     let testY = y;
 
-    for(let n = 0; n < words.length; n++) {
+    for (let n = 0; n < words.length; n++) {
         let testLine = line + words[n] + ' ';
         let metrics = context.measureText(testLine);
         if (metrics.width > maxWidth && n > 0) {
@@ -212,7 +210,7 @@ document.addEventListener('keydown', (e) => {
 // 3. The "God Mode" Function
 function activateDevMode() {
     console.log("Dev Mode Activated: Respect Maxed Out! 🚀");
-    
+
     // Set variables to maximum
     selfRespect = 100;
     attachment = 0;
@@ -220,7 +218,7 @@ function activateDevMode() {
 
     // Update UI
     updateBars();
-    
+
     // Add a cool visual flash to the body
     document.body.style.filter = "invert(1)";
     setTimeout(() => {
