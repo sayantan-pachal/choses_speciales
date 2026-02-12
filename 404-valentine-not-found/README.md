@@ -2,6 +2,12 @@
 
 A high-performance, survival-themed web application built to navigate the "commercialized romance" season. This project features real-time state management, dynamic canvas generation, and a glassmorphism UI.
 
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
+![GitHub Pages](https://img.shields.io/badge/github%20pages-121013?style=for-the-badge&logo=github&logoColor=white)
+
 ## 🚀 Live Demo
 [Explore the Survival Guide](https://sayantan-pachal.github.io/choses_speciales/404-valentine-not-found)
 
