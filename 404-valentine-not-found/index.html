@@ -12,23 +12,17 @@
         .mood-happy { background-color: #1b4332; color: #d8f3dc; }
         .mood-dark { background-color: #000000; color: #ff4d4d; }
 
-        @keyframes shake {
-    0% { transform: translate(1px, 1px) rotate(0deg); }
-    10% { transform: translate(-1px, -2px) rotate(-1deg); }
-    20% { transform: translate(-3px, 0px) rotate(1deg); }
-    30% { transform: translate(3px, 2px) rotate(0deg); }
-    40% { transform: translate(1px, -1px) rotate(1deg); }
-    50% { transform: translate(-1px, 2px) rotate(-1deg); }
-    60% { transform: translate(-3px, 1px) rotate(0deg); }
-    70% { transform: translate(3px, 1px) rotate(-1deg); }
-    80% { transform: translate(-1px, -1px) rotate(1deg); }
-    90% { transform: translate(1px, 2px) rotate(0deg); }
-    100% { transform: translate(1px, -2px) rotate(-1deg); }
+        /* Add this to your CSS */
+.relapse-shake {
+    animation: shake-animation 0.3s linear infinite;
 }
 
-.relapse-shake {
-    animation: shake 0.5s;
-    animation-iteration-count: infinite;
+@keyframes shake-animation {
+    0% { transform: translate(0,0); }
+    25% { transform: translate(5px, 5px); }
+    50% { transform: translate(-5px, -5px); }
+    75% { transform: translate(5px, -5px); }
+    100% { transform: translate(0,0); }
 }
     </style>
 </head>
@@ -57,7 +51,7 @@
             <p id="display-text" class="mt-6 italic text-lg text-yellow-500">Click a button for a truth bomb...</p>
         </div>
 
-        <div class="bg-gray-800 rounded-2xl p-8 max-w-2xl mx-auto border-2 border-gray-700 shadow-2xl">
+        <div class="status-matrix-card bg-gray-800 rounded-2xl p-8 max-w-2xl mx-auto border-2 border-gray-700 shadow-2xl">
     
     <div class="mb-6">
         <div class="flex justify-between mb-2">
@@ -132,6 +126,7 @@
     </div>
 </section>
 
-    <script src="app.js"></script>
+    <script src="data.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
