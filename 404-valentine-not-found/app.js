@@ -21,25 +21,25 @@ function changeMood(mood) {
 function survivalAction(type) {
     const display = document.getElementById('display-text');
     const list = survivalData[type];
-    
+
     if (list) {
         const random = list[Math.floor(Math.random() * list.length)];
-        
+
         if (type === 'music') {
             // Create a YouTube search query link
             const searchQuery = encodeURIComponent(`Arijit Singh ${random} official song`);
             const youtubeUrl = `https://www.youtube.com/results?search_query=${searchQuery}`;
-            
+
             // Set the HTML to be a clickable link
             display.innerHTML = `🎵 <a href="${youtubeUrl}" target="_blank" class="hover:text-white transition">Now Playing: ${random} <p>{Listen on YouTube}</p></a>`;
         } else {
             // For insults, motivation, etc., just show the text
             display.innerText = random;
         }
-        
+
         // Reset the copy status if you have one
         const statusLabel = document.getElementById('copy-status');
-        if(statusLabel) statusLabel.innerHTML = '<i class="far fa-copy"></i> Copy to clipboard';
+        if (statusLabel) statusLabel.innerHTML = '<i class="far fa-copy"></i> Copy to clipboard';
     }
 }
 
@@ -98,7 +98,7 @@ function updateBars() {
     bars.forEach(item => {
         const barEl = document.getElementById(item.bar);
         const valEl = document.getElementById(item.val);
-        
+
         if (barEl) barEl.style.width = item.value + "%";
         if (valEl) {
             if (item.isSingle && item.value >= 100) {
@@ -212,6 +212,13 @@ function generateMeme() {
     ctx.fillStyle = "#ffffff";
     ctx.font = "italic 24px Georgia";
     wrapText(ctx, quote, canvas.width / 2, canvas.height / 2, 400, 30);
+
+    const brandingY = canvas.height - 40;
+
+    ctx.fillStyle = "#52525b";
+    ctx.font = "14px Arial";
+    ctx.textAlign = "center";
+    ctx.fillText("404: Valentine Not Found 💀", canvas.width / 2, brandingY);
 
     document.getElementById('downloadBtn').href = canvas.toDataURL("image/png");
 }
@@ -332,7 +339,7 @@ function downloadAchievementBadge() {
     ctx.fillStyle = "#71717a";
     ctx.font = "italic 20px Georgia";
     ctx.fillText('"Self-respect higher than the Burj Khalifa"', canvas.width / 2, 280);
-    
+
     // 7. Site Branding
     ctx.fillStyle = "#52525b";
     ctx.font = "14px Arial";
@@ -348,7 +355,7 @@ function downloadAchievementBadge() {
 // --- Back to Top Button Logic ---
 const backToTopBtn = document.getElementById('backToTop');
 
-window.onscroll = function() {
+window.onscroll = function () {
     if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
         // Show button
         backToTopBtn.classList.remove('opacity-0', 'translate-y-10', 'invisible');
@@ -357,7 +364,7 @@ window.onscroll = function() {
         // Hide button
         backToTopBtn.classList.add('opacity-0', 'translate-y-10');
         setTimeout(() => {
-            if(backToTopBtn.classList.contains('opacity-0')) {
+            if (backToTopBtn.classList.contains('opacity-0')) {
                 backToTopBtn.classList.add('invisible');
             }
         }, 0); // Wait for transition to finish
