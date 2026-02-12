@@ -23,10 +23,4 @@ A survival-themed web application designed for the "commercialized romance" seas
 ## 📸 Achievement Badge
 The app generates a verified certificate including:
 * Official "God Level" Status
-* Verification Seal with a dynamic timestamp (February 2026)
 * Unique survival quotes
-
-## 💻 How to Run Locally
-1. Clone the repository:
-   ```bash
-   git clone (https://sayantan-pachal.github.io/choses_speciales/404-valentine-not-found)
