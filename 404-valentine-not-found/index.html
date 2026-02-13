@@ -52,7 +52,7 @@
             <div class="hidden sm:flex items-center gap-4">
                 <div class="text-xs font-mono text-zinc-500 uppercase tracking-widest">Single Level:</div>
                 <div class="w-32 bg-zinc-800 h-2 rounded-full overflow-hidden">
-                    <div id="nav-single-bar" class="bg-red-600 h-full transition-all duration-500" style="width: 9%">
+                    <div id="nav-single-bar" class="bg-red-600 h-full transition-all duration-1000 rounded-full" style="width: 9%">
                     </div>
                 </div>
                 <span id="nav-single-val" class="text-sm font-bold text-white font-mono">9%</span>
@@ -114,7 +114,7 @@
                 </div>
                 <div class="w-full bg-gray-900 rounded-full h-4 overflow-hidden">
                     <div id="single-bar"
-                        class="bg-gradient-to-r from-red-500 to-pink-500 h-full transition-all duration-500"
+                        class="bg-gradient-to-r from-red-500 to-pink-500 h-full transition-all duration-1000 rounded-full"
                         style="width: 9%"></div>
                 </div>
             </div>
@@ -126,7 +126,7 @@
                 </div>
                 <div class="w-full bg-gray-900 rounded-full h-4 overflow-hidden">
                     <div id="respect-bar"
-                        class="bg-gradient-to-r from-emerald-500 to-teal-500 h-full transition-all duration-500"
+                        class="bg-gradient-to-r from-emerald-500 to-teal-500 h-full transition-all duration-1000 rounded-full"
                         style="width: 50%"></div>
                 </div>
             </div>
@@ -138,7 +138,7 @@
                 </div>
                 <div class="w-full bg-gray-900 rounded-full h-4 overflow-hidden">
                     <div id="attach-bar"
-                        class="bg-gradient-to-r from-orange-500 to-red-500 h-full transition-all duration-500"
+                        class="bg-gradient-to-r from-orange-500 to-red-500 h-full transition-all duration-1000 rounded-full"
                         style="width: 80%"></div>
                 </div>
             </div>
@@ -182,10 +182,8 @@
         <div class="bg-zinc-900 p-6 rounded-2xl border border-zinc-800 inline-block">
             <canvas id="memeCanvas" width="500" height="300"
                 class="rounded-lg shadow-2xl border border-zinc-700 max-w-full"></canvas>
-
             <div class="mt-6 flex flex-wrap justify-center gap-4">
-                <button onclick="generateMeme()" class="px-6 py-2 bg-yellow-600 text-black font-bold rounded-lg">New
-                    Quote</button>
+                <button onclick="generateMeme()" class="px-6 py-2 bg-yellow-600 text-black font-bold rounded-lg"><i class="fas fa-random"></i> New Quote</button>
                 <a id="downloadBtn" download="survival-badge.png"
                     class="px-6 py-2 bg-white text-black font-bold rounded-lg cursor-pointer"><i
                         class="fas fa-download"></i> Download Meme</a>

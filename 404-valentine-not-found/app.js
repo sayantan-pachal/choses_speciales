@@ -194,9 +194,27 @@ function generateMeme() {
     const canvas = document.getElementById('memeCanvas');
     if (!canvas) return;
 
+    // STEP 1: Start the "Old one going" (Exit)
+    canvas.classList.remove('animate-entrance');
+    canvas.classList.add('animate-exit');
+
+    // STEP 2: Wait for exit animation to finish (400ms)
+    setTimeout(() => {
+        // Clear the canvas and draw the NEW content
+        const ctx = canvas.getContext('2d');
+
+        // STEP 3: Start the "New one coming" (Entrance)
+        canvas.classList.remove('animate-exit');
+        void canvas.offsetWidth; // Force reflow
+        canvas.classList.add('animate-entrance');
+        
+    }, 400); // This matches the 0.4s exit duration
+
+    // For demonstration, we'll just redraw the same meme content after the exit animation 
     const ctx = canvas.getContext('2d');
     const quote = survivalData.memes[Math.floor(Math.random() * survivalData.memes.length)];
 
+    // Clear the canvas and draw the NEW content
     ctx.fillStyle = "#18181b";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
