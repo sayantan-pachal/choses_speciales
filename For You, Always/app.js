@@ -1,3 +1,30 @@
+const textH1 = "Dearest,";
+const textP = "This page is a humble vessel for my feelings.";
+const speed = 100; // Speed in milliseconds
+
+function typeWriter(elementId, text, i, callback) {
+    if (i < text.length) {
+        document.getElementById(elementId).innerHTML += text.charAt(i);
+        setTimeout(() => typeWriter(elementId, text, i + 1, callback), speed);
+    } else if (callback) {
+        callback();
+    }
+}
+
+// Start the sequence when the window loads
+window.onload = () => {
+    typeWriter("typewriter-h1", textH1, 0, () => {
+        // Start typing the paragraph after the H1 is done
+        setTimeout(() => {
+            typeWriter("typewriter-p", textP, 0, () => {
+                // Show the button after everything is typed
+                document.getElementById('start-btn').classList.remove('hidden');
+                document.getElementById('start-btn').classList.add('fade-in');
+            });
+        }, 500);
+    });
+};
+
 document.getElementById('start-btn').addEventListener('click', function() {
     const music = document.getElementById('bg-music');
     music.play();

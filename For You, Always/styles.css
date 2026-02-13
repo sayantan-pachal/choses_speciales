@@ -9,11 +9,41 @@
 /* Parchment Texture & Border */
 .letter-bg {
     background: #fdf5e6;
-    background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
-    /* Smaller border for mobile so content has room */
-    border: 12px solid transparent; 
-    border-image: url('https://img.freepik.com/free-vector/vintage-ornamental-frames-collection_23-2148192004.jpg') 30 round;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 0 40px rgba(74, 55, 40, 0.1);
+    background-image: 
+        radial-gradient(circle at 50% 50%, rgba(255,255,255,0.2) 0%, rgba(0,0,0,0) 100%),
+        repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(0,0,0,0.01) 1px, rgba(0,0,0,0.01) 2px);
+    border: 2px solid #800000; 
+    padding: 20px; 
+    box-shadow: 
+        0 10px 30px rgba(0,0,0,0.5),             /* Outer shadow */
+        inset 0 0 0 5px #fdf5e6,                 /* Space between borders */
+        inset 0 0 0 7px #d2b48c,                 /* The inner "Gold" line */
+        inset 0 0 40px rgba(74, 55, 40, 0.1);    /* Soft parchment depth */
+
+    position: relative;
+    border-radius: 2px; /* Keep it sharp like a real letter */
+}
+
+/* Optional: Adding "Corner Ornaments" using CSS Pseudo-elements */
+.letter-bg::before {
+    content: "❦";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    color: #800000;
+    font-size: 1.2rem;
+    opacity: 0.6;
+}
+
+.letter-bg::after {
+    content: "❦";
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    color: #800000;
+    font-size: 1.2rem;
+    opacity: 0.6;
+    transform: rotate(180deg);
 }
 
 body {
@@ -49,4 +79,24 @@ h1 {
         border-image: none; 
         padding: 20px;
     }
+}
+
+.fade-in {
+    animation: fadeIn 1.5s ease-in forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Optional: Add a blinking cursor effect */
+#typewriter-p::after {
+    content: "|";
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
