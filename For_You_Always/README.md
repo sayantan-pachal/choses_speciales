@@ -10,7 +10,6 @@ A bespoke, interactive digital letter crafted with a "Classical" aesthetic. This
 * **Procedural Heart Animation:** An HTML5 Canvas-based particle system generating mathematically accurate Bézier curve hearts.
 * **Typewriter Reveal:** A sequential typewriter effect that guides the reader through the message at a romantic, steady pace.
 * **Bespoke Letterhead:** A custom "Wax Seal" inspired header featuring my nickname (Niku).
-* **Export to PDF:** Integrated `html2pdf.js` functionality to allow the recipient to save a permanent digital copy of the letter.
 * **Responsive Design:** Fully optimized for mobile devices using Tailwind CSS, ensuring the "Letter" fits perfectly on any screen.
 
 ## 🛠️ Tech Stack
@@ -19,12 +18,11 @@ A bespoke, interactive digital letter crafted with a "Classical" aesthetic. This
 * **Logic:** Vanilla JavaScript (ES6+)
 * **Graphics:** HTML5 Canvas API (2D Context)
 * **Typography:** Google Fonts (Great Vibes & Playfair Display)
-* **Library:** [html2pdf.js](https://ekoopmans.github.io/html2pdf.js/) for document generation.
 
 ## 🚀 Live Demo
 
 You can view the live project here:  
-👉 [https://sayantan-pachal.github.io/choses_speciales/For_You_Always/](https://sayantan-pachal.github.io/choses_speciales/For_You_Always/)
+[Explore the Letter](https://sayantan-pachal.github.io/choses_speciales/For_You_Always/)
 
 ## 📂 Project Structure
 
@@ -34,6 +32,7 @@ For You, Always/
 ├── styles.css    # Custom Classical UI & Burnt edge logic
 ├── app.js        # Canvas animation & Typewriter logic
 └── icon.svg      # Favicon
+```
 
 ---
 
