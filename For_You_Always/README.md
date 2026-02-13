@@ -36,4 +36,7 @@ For You, Always/
 
 ---
 
+- This project is licensed under the CC BY-NC-SA 4.0. You are free to share and adapt the code for non-commercial purposes, provided you give appropriate credit.
+
+
 - This project is personal and open for educational purposes. Built with ❤️ by **Sayantan Pachal**.
