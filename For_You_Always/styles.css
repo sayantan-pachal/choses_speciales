@@ -13,25 +13,26 @@
         radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0) 100%),
         repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(0, 0, 0, 0.01) 1px, rgba(0, 0, 0, 0.01) 2px);
     
-    /* Solid outer burgundy frame */
+    /* 1. The Main Burgundy Border */
     border: 2px solid #800000;
+    
+    /* 2. The Golden Strap (Using Outline) */
+    /* This creates a solid line that won't vanish on reload */
+    outline: 2px solid #d2b48c;
+    outline-offset: -8px; /* Moves the gold line inside the box */
+
     padding: 30px;
     position: relative;
     border-radius: 2px;
+    margin: 20px auto;
 
-    /* REVISED SHADOWS: Working from the edge inward */
+    /* 3. Cleaned Up Shadows (Only for Depth) */
     box-shadow:
-        0 15px 35px rgba(0, 0, 0, 0.4),           /* 1. Deep outer shadow */
-        inset 0 0 0 4px #fdf5e6,                  /* 2. Gap after the red border */
-        inset 0 0 0 6px #d2b48c,                  /* 3. The thin "Gold" inlay line */
-        inset 0 0 0 10px #fdf5e6,                 /* 4. Another gap to make the gold pop */
-        inset 0 0 50px rgba(74, 55, 40, 0.15);    /* 5. Soft inner parchment vignette */
-    
-    /* Ensure the box has enough room for shadows to show */
-    margin: 20px auto; 
+        0 15px 35px rgba(0, 0, 0, 0.4),           /* Deep outer shadow */
+        inset 0 0 50px rgba(74, 55, 40, 0.15);    /* Soft inner parchment vignette */
 }
 
-/* Optional: Adding "Corner Ornaments" using CSS Pseudo-elements */ 
+/* Corner Ornaments stay exactly as you wrote them */
 .letter-bg::before {
     content: "❦";
     position: absolute;
